@@ -20,8 +20,8 @@ def loginpage(request):
         if user is not None:
             login(request, user)
             if user.is_staff:
-                return redirect('http://127.0.0.1:8000/analytics')
-            return redirect('http://127.0.0.1:8000/home')
+                return redirect('https://parth.azurewebsites.net/analytics')
+            return redirect('https://parth.azurewebsites.net/home')
 
         else:
             messages.info(request, 'Username or password is incorrect')
@@ -81,5 +81,5 @@ def analytics(request):
         return render(request, 'analytics.html', {'data': rows})
     else:
         messages.info(request, 'Only staff can access this page')
-    return redirect('http://127.0.0.1:8000/login')
+    return redirect('https://parth.azurewebsites.net/login')
     # return render(request, 'login1.html')
