@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Login</title>
+
+  <!-- Favicon icon -->
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="{% static 'feedl.ico'%}" /> -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+	  *{
+		font-family: 'Poppins', sans-serif;
+	  }
+	  .loginbox{
+		  /* border: 2px solid black; */
+		  border-radius: 25px;
+		  width: 450px;
+		  height: 440px;
+		  position: relative;
+		  left: 140px;
+		  top: 130px;
+		  backdrop-filter: blur(5px);
+		  background-color: rgb(0,0,0,0.2);
+	  }
+	  footer {
+          color: white;
+          width: 100%;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          padding: 1px 1px;
+          background-color: #233140;
+        }
+	  p{
+		  color: white !important;
+		  font-size: 35px;
+		  letter-spacing: 4px;
+		  margin: 15px 0px;
+	  }
+	  #user{
+		  padding: 10px 20px;
+		  width: 70%;
+		  border-radius: 25px;
+		  background-color: transparent;
+		  border: 2px solid white;
+		  font-size: 15px;
+	  }
+	  #button{
+		  padding: 10px;
+		  width: 25%;
+		  border: 0px solid black;
+		  border-radius: 25px;
+	  }
+	  #button:hover{
+		  cursor: pointer;
+	  }
+	  h4{
+		  margin: 5px 0px;
+	  }
+	  h4 a{
+		  color: white;
+		  font-weight: 400;
+		  font-size: 12px;
+	  }
+	  body{
+		   
+		  background-position: center;
+		  background-image: url({% static 'logwall.jpg' %});
+		  background-size: cover;
+		  width:100vw;
+		  height: 100vh;
+		  background-repeat: no-repeat;
+		  overflow: hidden;
+		  
+	  }
+
+	  @media only screen and (max-width:1300px) {
+         
+		 .loginbox{
+			 left:0px;
+			 top:50px;
+			 width:100%;
+		 }
+
+
+      }
+  </style>
+</head>
+
+<body>
+	<div class="loginbox" ><center>
+		<br><br>
+		<!-- <img src="{% static 'logon.png'%}" style="width:300px;"> -->
+		<p>Log In</p><br>
+		
+		<form method="POST" action="#">
+			{% csrf_token %}
+			<input type="text" name="username" id="user" placeholder="Username"><br><br>
+			<input type="password" name="password" id="user" placeholder="Password"><br><br>
+		<input type="submit" value="Login" id="button">
+		</form>
+		{% for message in messages %}
+					<p style="font-size: 20px;" id="messages">{{message}}</p>
+				{% endfor %}
+	</center>
+	</div>  
+	<footer class="text-center">
+        <div class="container">
+          <div class="row">
+            <h3 style = "text-align: center !important;">
+                <center>
+              Created by -
+              <a href="#" target="_blank" style="color: white"> Parth Yash Chinmay </a>
+            </center>
+            </h3>
+          </div>
+        </div>
+      </footer>
+</body>
+
+</html>
